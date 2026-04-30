@@ -27,6 +27,6 @@ WHERE start_time = (
 EXIT
 "@
 
-# --- Execute SQL ---
-$sql | sqlplus -s user_name/user_password | ForEach-Object { [int]$_.Trim() }
+# --- Execute SQL (usr_name and password replace with Oracle databse user)---
+$sql | sqlplus -s usr_name/password | ForEach-Object { [int]$_.Trim() }
 
