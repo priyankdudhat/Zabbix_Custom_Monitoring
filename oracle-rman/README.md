@@ -33,3 +33,31 @@ Example user:
 - **User:** TOAD (read-only)
 
 The user must have SELECT permission on:
+
+---
+
+### 2. Create Script Directory
+
+Create a directory on the Oracle server to store Zabbix custom scripts:
+
+---
+
+### 3. Create PowerShell Script
+
+Create the PowerShell script:
+
+Script requirements:
+- Adjust `ORACLE_HOME` according to your Oracle installation
+- Adjust `ORCL` if your Oracle service name is different
+- Script must return **only a numeric value (0–7)**
+
+The script evaluates the latest RMAN backup job and maps its status to a numeric code.
+
+---
+
+### 4. Test Script Manually
+
+Before integrating with Zabbix, test the script manually on the Oracle server:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File C:\Scripts\Zabbix_Rman_Sql\check_rman_status.ps1
